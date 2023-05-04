@@ -4,9 +4,11 @@ import java.util.List;
 
 public class Lion {
 
-    boolean hasMane;
+    private final boolean hasMane;
+    private final Foodittenable foodittenable;
 
-    public Lion(String sex) throws Exception {
+    public Lion(Foodittenable foodittenable, String sex) throws Exception {
+        this.foodittenable = foodittenable;
         if ("Самец".equals(sex)) {
             hasMane = true;
         } else if ("Самка".equals(sex)) {
@@ -16,10 +18,8 @@ public class Lion {
         }
     }
 
-    Feline feline = new Feline();
-
     public int getKittens() {
-        return feline.getKittens();
+        return foodittenable.getKittens();
     }
 
     public boolean doesHaveMane() {
@@ -27,6 +27,6 @@ public class Lion {
     }
 
     public List<String> getFood() throws Exception {
-        return feline.getFood("Хищник");
+        return foodittenable.getFood("Хищник");
     }
 }
