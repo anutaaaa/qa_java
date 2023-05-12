@@ -1,6 +1,7 @@
 package com.example;
 
 import org.junit.Test;
+import org.mockito.Mockito;
 
 import java.util.List;
 
@@ -29,6 +30,6 @@ public class FelineTest {
     @Test
     public void testEatMeat() throws Exception {
         Feline feline = new Feline();
-        assertEquals(List.of("Животные", "Птицы", "Рыба"), feline.getFood("Хищник"));
+        assertEquals(List.of("Животные", "Птицы", "Рыба"), feline.eatMeat());
     }
 }

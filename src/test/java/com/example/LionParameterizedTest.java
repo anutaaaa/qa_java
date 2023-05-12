@@ -14,14 +14,14 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThrows;
 
 @RunWith(Parameterized.class)
-public class LionTest {
+public class LionParameterizedTest {
 
     @Mock
     Feline feline;
 
     SexAndMane data;
 
-    public LionTest(SexAndMane data) {
+    public LionParameterizedTest(SexAndMane data) {
         this.data = data;
     }
 
@@ -39,13 +39,6 @@ public class LionTest {
     }
 
     @Test
-    public void testGetKittens() throws Exception {
-        Lion lion = new Lion(feline, "Самец");
-        Mockito.when(feline.getKittens()).thenReturn(10);
-        assertEquals(10, lion.getKittens());
-    }
-
-    @Test
     public void testDoesHaveMane() throws Exception {
         Lion lion = new Lion(feline, data.getSex());
         assertEquals(data.isMane(), lion.doesHaveMane());
@@ -54,13 +47,6 @@ public class LionTest {
     @Test
     public void testConstructorThrows() {
         Throwable thrown = assertThrows(Exception.class, () -> new Lion(feline, ""));
-        assertEquals("Используйте допустимые значения пола животного - самей или самка", thrown.getMessage());
-    }
-
-    @Test
-    public void testGetFood() throws Exception {
-        Lion lion = new Lion(feline, "Самец");
-        Mockito.when(feline.getFood("Хищник")).thenReturn(List.of("Птицы"));
-        assertEquals(List.of("Птицы"), lion.getFood());
+        assertEquals("Используйте допустимые значения пола животного - самец или самка", thrown.getMessage());
     }
 }

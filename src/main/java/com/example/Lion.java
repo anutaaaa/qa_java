@@ -5,21 +5,21 @@ import java.util.List;
 public class Lion {
 
     private final boolean hasMane;
-    private final Foodittenable foodittenable;
+    private final Feline feline;
 
-    public Lion(Foodittenable foodittenable, String sex) throws Exception {
-        this.foodittenable = foodittenable;
+    public Lion(Feline feline, String sex) throws Exception {
+        this.feline = feline;
         if ("Самец".equals(sex)) {
             hasMane = true;
         } else if ("Самка".equals(sex)) {
             hasMane = false;
         } else {
-            throw new Exception("Используйте допустимые значения пола животного - самей или самка");
+            throw new Exception("Используйте допустимые значения пола животного - самец или самка");
         }
     }
 
     public int getKittens() {
-        return foodittenable.getKittens();
+        return feline.getKittens();
     }
 
     public boolean doesHaveMane() {
@@ -27,6 +27,6 @@ public class Lion {
     }
 
     public List<String> getFood() throws Exception {
-        return foodittenable.getFood("Хищник");
+        return feline.getFood("Хищник");
     }
 }
